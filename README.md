@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 ### Set classes to elements
 
-Add the `data-scroll-class` attribute to any element that you wish to target and set a class name as the value.
+Add the `data-scroll-class` attribute to any element/elements that you wish to target and set a class name as the value.
 
 ```html
 <div class="example" data-scroll-class="my-class"></div>
