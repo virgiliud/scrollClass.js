@@ -2,9 +2,7 @@
 
 A simple jQuery plugin for adding classes to elements when they are scrolled into view.
 
-The plugin was created as a simple way to add animation effects to elements on scroll by passing classes with CSS3 properties. The goal of the plugin is to take advantage of CSS3 awesomeness and eliminate the use of traditional script-driven animation techniques. 
-
-Feel free to use the plugin for any purpose other than that stated here. 
+The plugin was created as a simple way to add animations on scroll by adding classes with CSS3 effects to elements. The plugin allows for use of CSS3 awesomeness instead of using traditional script-driven animation techniques. Feel free to use the plugin for any purpose other than that stated here. 
 
 ## Usage
 
