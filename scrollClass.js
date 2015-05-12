@@ -57,9 +57,17 @@
         // If element visible in viewport
         base.inViewport = function () {
             var elRect = base.el.getBoundingClientRect(),
-                thresholdNum = (base.options.threshold / 100) * elRect.height;
+            	winHeight = base.$win.height(),
+                elThreshold = base.options.threshold;
+            // If window height smaller than element height use 50% threshold
+            if (winHeight < elRect.height) {
+	            elThreshold = 50;
+            } 
+            // Convert threshold percent to px of element
+            var thresholdPx = (elThreshold / 100) * elRect.height;
+            // Return true if element in viewport
             return (
-                elRect.top + thresholdNum <= base.$win.height() && elRect.bottom - thresholdNum >= 0 + base.options.offsetTop
+                elRect.top + thresholdPx <= winHeight && elRect.bottom - thresholdPx >= 0 + base.options.offsetTop
             );
         };
         
