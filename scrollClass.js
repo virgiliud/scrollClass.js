@@ -1,4 +1,4 @@
-/*!
+/*
  * scrollClass jQuery Plugin v1.0
  *
  * Author: Virgiliu Diaconu
@@ -74,8 +74,8 @@
         // Run initializer
         base.init();
         
-        // On scroll listener	    
-        base.$win.on('scroll', base.scrollHandler);
+        // On scroll and ready listener	    
+        base.$win.on('scroll ready', base.scrollHandler);
     };
     
     $.scrollClass.defaultOptions = {
