@@ -4,6 +4,8 @@ A simple jQuery plugin for adding classes to elements when they are scrolled int
 
 The plugin was created as a simple way to add CSS3 animation effects to elements based on the scroll position. Feel free to use the plugin for any other purpose. 
 
+[View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
+
 ## Usage
 
 ### Initialization
@@ -47,6 +49,8 @@ $(document).ready(function() {
   });
 });
 ```
+##Demo
+[View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
 
 ##Contributions
 
