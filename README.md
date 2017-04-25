@@ -23,10 +23,10 @@ $(document).ready(function() {
 Add the `data-scroll-class` attribute to any element or multiple elements that you wish to target and set a class name as the value.
 
 ```html
-<div class="example" data-scroll-class="my-class"></div>
+<div class="example" data-scroll-class="awesome-animation"></div>
 ```
 
-In the example above, `my-class` will be added to the class attribute of the element when it enters the viewport. (Multiple class names can be added to the data attribute.)
+In the example above, `awesome-animation` will be added to the class attribute of the element when it enters the viewport. (Multiple class names can be added to the data attribute.)
 
 ##Plugin Options
 
