@@ -26,7 +26,7 @@ Add the `data-scroll-class` attribute to any element or multiple elements that y
 
 In the example above, `awesome-animation` will be added to the class attribute of the element when it enters the viewport. (Multiple class names can be added to the data attribute.)
 
-##Plugin Options
+## Plugin Options
 
 - `delay`: Target an element after x number of milliseconds. Adding a delay is recommended for better performance. `10` is set by default. Set to `false` or `0` to disable.
 - `threshold`: Target an element when x percent of it is visible in the viewport. Works when scrolling down or up. `50` is set by default. Do not add a percentage sign when setting the threshold.
@@ -47,9 +47,9 @@ $(document).ready(function() {
   });
 });
 ```
-##Demo
+## Demo
 [View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
 
-##Contributions
+## Contributions
 
 Feel free to fork the repo. All pull requests that improve the plugin are welcomed! 
