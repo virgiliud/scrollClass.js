@@ -1,5 +1,5 @@
 /*
- * scrollClass jQuery Plugin v1.0
+ * scrollClass jQuery Plugin v1.1
  *
  * Author: Virgiliu Diaconu
  * http://www.virgiliu.com
@@ -32,27 +32,32 @@
             if (viewed) {
                 return;
             }
-            if (base.options.delay && base.options.delay !== 0) {
-                window.clearTimeout(timer);
-                timer = window.setTimeout(base.onScroll, base.options.delay);
-            } else {
-                base.onScroll();
-            }
+            base.onScroll();
         };
         
         // On scroll
         base.onScroll = function () {
             if (base.inViewport()) {
-                var dataAttr = base.$el.data("scrollClass");
-                base.$el.addClass(dataAttr);
+                if (base.options.delay !== 0) {
+		              window.clearTimeout(timer);
+		              timer = window.setTimeout(base.addScrollClass, base.options.delay);                
+                } else {
+	                base.addScrollClass();
+                }
                 // Callback
                 if (typeof base.options.callback === 'function') {
-                    base.options.callback.call(el);
+                  base.options.callback.call(el);
                 }
                 viewed = true;
                 return;
             }
         };
+        
+        // Add scroll class
+        base.addScrollClass = function () {
+					var dataAttr = base.$el.data("scrollClass");
+					base.$el.addClass(dataAttr);
+        }
         
         // If element visible in viewport
         base.inViewport = function () {
@@ -74,12 +79,12 @@
         // Run initializer
         base.init();
         
-        // On scroll and ready listener	    
-        base.$win.on('scroll ready', base.scrollHandler);
+        // On scroll and load listener	    
+        base.$win.on('scroll load', base.scrollHandler);
     };
     
     $.scrollClass.defaultOptions = {
-        delay: 20,
+        delay: 10,
         threshold: 50,
         offsetTop: 0
     };
