@@ -1,6 +1,6 @@
 # scrollClass.js
 
-A simple jQuery plugin for adding classes to elements when they are scrolled into view and firing callbacks.  
+A simple jQuery plugin for adding classes to elements when they are scrolled into view and invoking callbacks.  
 
 [View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
 
@@ -8,17 +8,17 @@ A simple jQuery plugin for adding classes to elements when they are scrolled int
 
 ### Initialization
 
-Pass a class name to the selector to initialize the plugin. Elements with the chosen class name will be targeted on scroll.
+Pass a class name or the `data-scroll-class` attribute to the selector to initialize the plugin. Elements with the chosen selector will be targeted on scroll.
 
 ```js
 $(document).ready(function() {
-  $('.example').scrollClass();
+  $('[data-scroll-class]').scrollClass();
 });
 ```
 
-### Set classes to elements
+### Set classes to be added to elements
 
-Add the `data-scroll-class` attribute to any element or multiple elements that you wish to target and set a class name as the value.
+Add the `data-scroll-class` attribute to any element or multiple elements that you wish to target. Set a class name (or more) for the value.
 
 ```html
 <div class="example" data-scroll-class="awesome-animation"></div>
@@ -54,14 +54,16 @@ $(document).ready(function() {
 
 Options set with `data-scroll` attributes take precedence over initialization options set in JS. Below is an example with all the available `data-scroll` attributes:
 
-`<div
+```html
+<div
   data-scroll-class="awesome-animation"
   data-scroll-delay="10"
   data-threshold="50"
   data-offset-top="80"
   data-scroll-reset="true"
 >
-</div>`
+</div>
+```
 
 ## Demo
 [View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
