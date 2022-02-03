@@ -59,7 +59,7 @@ Options set with `data-scroll` attributes take precedence over initialization op
   data-scroll-class="awesome-animation"
   data-scroll-delay="100"
   data-threshold="50"
-  data-offset-top="80"
+  data-scroll-offset-top="80"
   data-scroll-reset="true"
 >
 </div>
