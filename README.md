@@ -41,7 +41,7 @@ In the example above, `awesome-animation` will be added to the class attribute o
 ```js
 $(document).ready(function() {
   $('.example').scrollClass({
-    delay: 10, // set the class after 10 milliseconds delay
+    delay: 100, // set the class after 100 milliseconds delay
     threshold: 50, // set the class when 50% of the element enters the viewport
     offsetTop: 80, // the height in pixels of a fixed top navigation bar
     callback: function () { // invoke a callback
@@ -57,7 +57,7 @@ Options set with `data-scroll` attributes take precedence over initialization op
 ```html
 <div
   data-scroll-class="awesome-animation"
-  data-scroll-delay="10"
+  data-scroll-delay="100"
   data-threshold="50"
   data-offset-top="80"
   data-scroll-reset="true"
