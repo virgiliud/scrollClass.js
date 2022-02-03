@@ -1,6 +1,3 @@
-node_modules
-
-## Keep files out of version control
 custom.js
 style.css
 index.html
