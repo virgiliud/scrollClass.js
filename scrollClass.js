@@ -113,7 +113,6 @@
       return (
         elRect.top + thresholdPx <= winHeight && elRect.bottom - thresholdPx >= base.offsetTop
       );
-
     };
 
     // Run initializer
