@@ -16,7 +16,6 @@
 
     // Cached objects
     base.$win = $(window);
-    base.$doc = $(document);
 
     var viewed = false,
       timer,
