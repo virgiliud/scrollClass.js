@@ -1,6 +1,6 @@
 # scrollClass.js
 
-A simple jQuery plugin for adding classes to elements when they are scrolled into view and invoking callbacks.  
+A simple jQuery plugin for adding classes to elements when they are scrolled into view. Use it to add custom CSS3 animations on scroll or to invoke callbacks for other purposes. The plugin aims to be easy to use, flexible, and light.
 
 [View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
 
