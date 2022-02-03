@@ -1,5 +1,6 @@
 node_modules
 
-## Uncomment line below if you prefer to
-## keep compiled files out of version control
-node_modules/
+## Keep files out of version control
+custom.js
+style.css
+index.html
