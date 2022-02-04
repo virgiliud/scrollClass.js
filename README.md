@@ -44,7 +44,7 @@ $(document).ready(function() {
     delay: 100, // set the class after 100 milliseconds delay
     threshold: 50, // set the class when 50% of the element enters the viewport
     offsetTop: 80, // the height in pixels of a fixed top navigation bar
-    callback: function () { // execute a custom function when an element enters the viewport
+    callback: function () { // run a custom function when an element enters the viewport
       console.log('Ahoy there!');
     }
   });
