@@ -74,11 +74,12 @@ class ScrollClass {
 
   toggleScrollClass() {
     const dataAttr = this.el.getAttribute("data-scroll-class");
+    const classes = dataAttr.split(' ');
 
     if (this.viewed === true) {
-      this.el.classList.add(dataAttr);
+        classes.forEach(cls => this.el.classList.add(cls));
     } else {
-      this.el.classList.remove(dataAttr);
+        classes.forEach(cls => this.el.classList.remove(cls));
     }
   }
 
