@@ -42,7 +42,7 @@ class ScrollClass {
       ? (this.el.dataset.scrollReset === "" || this.el.dataset.scrollReset.toLowerCase() === 'true')
       : this.options.reset;
 
-      // Initialize scroll event
+    // Initialize scroll event
     this.init();
   }
 
