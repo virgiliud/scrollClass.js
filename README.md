@@ -2,8 +2,6 @@
 
 A simple JavaScript utility for adding classes to elements when they are scrolled into view. Use it to add custom CSS3 animations on scroll or to invoke callbacks. This utility is designed to be user-friendly, flexible, and lightweight.
 
-[View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
-
 ## Usage
 
 ### Initialization
@@ -74,4 +72,4 @@ Options set with `data-scroll` attributes take precedence over initialization op
 ```
 
 ## Demo
-[View Demo](http://www.virgiliudiaconu.com/work/scroll-class/)
+Please open the demo.html file to see ScrollClass in action.
