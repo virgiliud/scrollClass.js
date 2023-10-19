@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
       offsetTop: 80, // the height in pixels of a fixed top navigation bar
       callback: function () { // run a custom function when an element enters the viewport
         console.log('Element has entered the viewport');
+      },
+      resetCallback: function() {  // run a custom function when an element is reset
+        console.log("Exited viewport:", this);
       }
     });
   });
