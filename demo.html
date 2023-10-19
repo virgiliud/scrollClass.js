@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollClass Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .hero {
+            height: 100vh;
+            background-color: rgb(22 78 99);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .arrow {
+            display: block;
+            margin: 20px auto 0;
+            width: 40px;
+            height: 40px;
+            border: 3px solid white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .arrow::before {
+            content: '⬇';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f4f4f4;
+            opacity: 0.2;
+            transition: opacity 1s, background-color 1s; 
+        }
+
+        .visible {
+            opacity: 1;
+            background-color: rgb(165 243 252); 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>ScrollClass Demo</h1>
+        <p>Scroll down to see ScrollClass in action</p>
+        <div class="arrow"></div>
+    </div>
+
+    <div class="section hidden" data-scroll-class="visible">
+        Section 1 - Basic usage. Scroll down to see the effect.
+    </div>
+
+    <div class="section hidden" data-scroll-class="visible" data-scroll-reset>
+        Section 2 - With reset. Scroll out of view and back to see the reset effect.
+    </div>
+
+    <div class="section hidden" data-scroll-class="visible" data-scroll-delay="1000">
+        Section 3 - With 1000ms delay. Waits 1 second before applying the visible class.
+    </div>
+
+    <div class="section hidden" data-scroll-class="visible" data-threshold="20">
+        Section 4 - With 20% threshold. Becomes visible after 20% of the section enters the viewport.
+    </div>
+
+    <div class="section hidden" data-scroll-class="visible">
+        <div>Section 5 - Callback Demo. Scroll and check the browser console logs to see the callback in action.</div> <br><br>
+        <code>
+            new ScrollClass(section, { <br>
+                &nbsp;&nbsp;callback: function() { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Entered viewport:", this); <br>
+                &nbsp;&nbsp;}, <br>
+                &nbsp;&nbsp;resetCallback: function() { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Exited viewport:", this); <br>
+                &nbsp;&nbsp;} <br>
+            });
+        </code>
+    </div>
+    
+    <script src="scrollClass.min.js"></script>
+    <script>
+        // Initialize ScrollClass for each section
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            new ScrollClass(section, {
+                callback: function() {
+                    console.log("Section was viewed:", this);
+                },
+                resetCallback: function() {
+                    console.log("Section was reset:", this);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

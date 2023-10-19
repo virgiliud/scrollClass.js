@@ -1,5 +1,5 @@
 /*
- * scrollClass JS Plugin v2.0
+ * ScrollClass JS Utility v2.0
  *
  * Author: Virgiliu Diaconu
  * http://www.virgiliudiaconu.com
@@ -7,6 +7,8 @@
  */
 
 class ScrollClass {
+
+  // Default options for the ScrollClass
   static defaultOptions = {
     delay: 10,
     threshold: 50,
@@ -15,6 +17,7 @@ class ScrollClass {
     throttle: 50,
   };
 
+  // Constructor to initialize the plugin
   constructor(el, options = {}) {
     this.el = el;
     this.win = window;
@@ -22,15 +25,28 @@ class ScrollClass {
     this.timer = null;
     this.throttleDelay = null;
 
+    // Merge default and user-provided options
     this.options = Object.assign({}, ScrollClass.defaultOptions, options);
-    this.delay = this.el.dataset.scrollDelay ?? this.options.delay;
-    this.threshold = this.el.dataset.scrollThreshold ?? this.options.threshold;
-    this.offsetTop = this.el.dataset.scrollOffsetTop ?? this.options.offsetTop;
-    this.reset = this.el.dataset.scrollReset ?? this.options.reset;
 
+    // Handle data attributes and set properties
+    this.delay = this.el.dataset.scrollDelay !== undefined 
+      ? Number(this.el.dataset.scrollDelay) 
+      : this.options.delay;
+    this.threshold = this.el.dataset.scrollThreshold !== undefined
+      ? Number(this.el.dataset.scrollThreshold) 
+      : this.options.threshold;
+    this.offsetTop = this.el.dataset.scrollOffsetTop !== undefined 
+      ? Number(this.el.dataset.scrollOffsetTop) 
+      : this.options.offsetTop;
+    this.reset = this.el.hasAttribute('data-scroll-reset') 
+      ? (this.el.dataset.scrollReset === "" || this.el.dataset.scrollReset.toLowerCase() === 'true')
+      : this.options.reset;
+
+      // Initialize scroll event
     this.init();
   }
 
+  // Initialize event listeners and handle scroll
   init() {
     this.onScroll();
     this.win.addEventListener('scroll', () => {
@@ -38,17 +54,19 @@ class ScrollClass {
     });
   }
 
+  // Handler for scrolling event
   scrollHandler() {
-    if (this.viewed === true && this.reset === false) {
+    if (this.viewed && !this.reset) {
       return;
     }
 
     this.onScroll();
   }
 
+  // Check if element is in viewport & apply necessary logic
   onScroll() {
     if (this.inViewport()) {
-      if (this.viewed === true && this.reset === true) {
+      if (this.viewed && this.reset) {
         return;
       }
 
@@ -62,8 +80,8 @@ class ScrollClass {
       }, this.delay);
 
       this.viewed = true;
-    } else if (this.reset === true) {
-      if (this.viewed === true && typeof this.options.resetCallback === 'function') {
+    } else if (this.reset) {
+      if (this.viewed && typeof this.options.resetCallback === 'function') {
         this.options.resetCallback.call(this.el);
       }
 
@@ -72,17 +90,20 @@ class ScrollClass {
     }
   }
 
+  // Toggle classes based on visibility state
   toggleScrollClass() {
     const dataAttr = this.el.getAttribute("data-scroll-class");
+    if (!dataAttr) return;
     const classes = dataAttr.split(' ');
 
-    if (this.viewed === true) {
+    if (this.viewed) {
         classes.forEach(cls => this.el.classList.add(cls));
     } else {
         classes.forEach(cls => this.el.classList.remove(cls));
     }
   }
 
+  // Check if element is visible in the viewport
   inViewport() {
     const elRect = this.el.getBoundingClientRect();
     const winHeight = this.win.innerHeight;
@@ -100,6 +121,7 @@ class ScrollClass {
     );
   }
 
+  // Throttle function to optimize scroll performance
   throttle(callback, delay) {
     if (this.throttleDelay) {
       return;
